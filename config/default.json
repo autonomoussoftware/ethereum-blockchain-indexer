@@ -3,5 +3,17 @@
   "websocketApiUrl": "ws://parity.bloqrock.net:8546",
   "pauseOnError": 2000,
   "apiPort": 8080,
-  "redisUrl": "redis://localhost:6379"
+  "redisUrl": "redis://localhost:6379",
+  "logger": {
+    "papertrail": {
+      "colorize": "true",
+      "flushOnClose": "true",
+      "handleExceptions": "true",
+      "host": "",
+      "inlineMeta": "true",
+      "level": "info",
+      "port": "",
+      "program": "metronome-api"
+    }
+  }
 }

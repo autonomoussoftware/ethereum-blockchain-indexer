@@ -3,5 +3,17 @@
   "websocketApiUrl": "ENODE_WS_API_URL",
   "pauseOnError": "INDEXER_DELAY_ON_ERROR",
   "apiPort": "PORT",
-  "redisUrl": "REDIS_URL"
+  "redisUrl": "REDIS_URL",
+  "logger": {
+    "papertrail": {
+      "colorize": "true",
+      "flushOnClose": "true",
+      "handleExceptions": "true",
+      "host": "",
+      "inlineMeta": "true",
+      "level": "info",
+      "port": "",
+      "program": "metronome-api"
+    }
+  }
 }

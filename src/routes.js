@@ -2,6 +2,8 @@ const debug = require('debug')('eis.api')
 const promiseAllProps = require('promise-all-props')
 const Router = require('restify-router').Router
 
+const logger = require('./logger')
+
 const db = require('./db')
 const pkg = require('../package')
 const merge = require('../lib/merge')
@@ -54,7 +56,7 @@ function getAddressTokenTransactions (req, res, next) {
 function getBestBlockNumber (req, res, next) {
   db.get('best-block')
     .then(function (number) {
-      console.log('<--', number)
+      logger.info('<--', number)
       res.json({ number })
       next()
     })

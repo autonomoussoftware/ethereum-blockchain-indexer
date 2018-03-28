@@ -1,5 +1,6 @@
 const { pauseOnError } = require('config')
 const debug = require('debug')('eis.indexer')
+const logger = require('./logger.js')
 
 const asyncSetTimeout = require('../lib/async-set-timeout')
 
@@ -10,7 +11,7 @@ const web3 = require('./web3')
 // store ETH transaction data
 function storeEthTransactions ({ number, data: { addresses, txid } }) {
   return Promise.all(addresses.map(function (address) {
-    console.log('Indexed', address, number, txid)
+    logger.info('Indexed', address, number, txid)
     return db.zadd(`eth:${address}`, number, txid)
   }))
 }
@@ -19,7 +20,7 @@ function storeEthTransactions ({ number, data: { addresses, txid } }) {
 function storeTokenTransactions ({ number, data: { tokens, txid } }) {
   return Promise.all(tokens.map(function ({ addresses, token }) {
     return Promise.all(addresses.map(function (address) {
-      console.log('Indexed', address, token, number, txid)
+      logger.info('Indexed', address, token, number, txid)
       return db.zadd(`tok:${address}:${token}`, number, txid)
     }))
   }))
@@ -51,7 +52,7 @@ function indexBlocks (number) {
         .then(function (data) {
           return storeParsedInfo({ number: next, data })
         }).then(function () {
-          console.log('New best block', next)
+          logger.info('New best block', next)
           return db.set('best-block', next)
         }).then(function () {
           return indexBlocks(number)

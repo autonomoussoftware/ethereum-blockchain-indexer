@@ -1,11 +1,12 @@
 const { redisUrl } = require('config')
 const redis = require('redis')
 const util = require('util')
+const logger = require('./logger.js')
 
 const client = redis.createClient({ url: redisUrl })
 
 client.on('error', function (err) {
-  console.error('Redis error', err)
+  logger.error('Redis error', err)
 })
 
 // string keys

@@ -1,6 +1,7 @@
 const { apiPort } = require('config')
 const restify = require('restify')
 const debug = require('debug')('eis.api')
+const logger = require('./logger.js')
 
 const routes = require('./routes')
 const server = restify.createServer()
@@ -18,7 +19,7 @@ function start () {
   routes.applyRoutes(server)
 
   server.listen(apiPort, function () {
-    console.log(`API started on port ${apiPort}`)
+    logger.info(`API started on port ${apiPort}`)
   })
 }
 
