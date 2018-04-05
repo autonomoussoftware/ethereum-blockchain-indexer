@@ -1,7 +1,7 @@
 {
-  "newRelic": {
-    "licenseKey": "NEW_RELIC_LICENSE_KEY",
-    "loggingLevel": "NEW_RELIC_LOGGING_LEVEL"
+  "enode": {
+    "jsonRpcApiUrl": "ENODE_JSON_RPC_API_URL",
+    "websocketApiUrl": "ENODE_WS_API_URL"
   },
   "throttle": {
     "burst": "THROTTLE_BURST", 
@@ -17,7 +17,16 @@
     "Papertrail": {
       "host": "LOGGER_PAPERTRAIL_HOST",
       "port": "LOGGER_PAPERTRAIL_PORT",
-      "program": "LOGGER_PAPERTRAIL_PROGRAM"
+      "program": "LOGGER_PAPERTRAIL_PROGRAM",
+      "level": "LOGGER_PAPERTRAIL_LEVEL"
     }
-  }
+  },
+  "newRelic": {
+    "appName": "NEW_RELIC_APP_NAME",
+    "licenseKey": "NEW_RELIC_LICENSE_KEY",
+    "loggingLevel": "NEW_RELIC_LOGGING_LEVEL"
+  },
+  "pauseOnError": "INDEXER_DELAY_ON_ERROR",
+  "port": "PORT",
+  "redisUrl": "REDIS_URL"
 }
