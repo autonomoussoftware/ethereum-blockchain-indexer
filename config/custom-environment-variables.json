@@ -3,6 +3,11 @@
     "licenseKey": "NEW_RELIC_LICENSE_KEY",
     "loggingLevel": "NEW_RELIC_LOGGING_LEVEL"
   },
+  "throttle": {
+    "burst": "THROTTLE_BURST", 
+    "rate": "THROTTLE_RATE",
+    "ip": "THROTTLE_IP_BOOL"
+  },
   "jsonRpcApiUrl": "ENODE_JSON_RPC_API_URL",
   "websocketApiUrl": "ENODE_WS_API_URL",
   "pauseOnError": "INDEXER_DELAY_ON_ERROR",

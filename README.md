@@ -59,3 +59,13 @@ Will return an object containing the `number` of the last block indexed.
   "number": "543210"
 }
 ```
+
+### Limit Rate
+
+* `THROTTLE_BURST`: Steady state number of requests/second to allow
+
+* `THROTTLE_RATE`: If available, the amount of requests to burst to.
+ 
+* `THROTTLE_IP_BOOL`: Do throttling on a /32 (source IP)
+
+See more data on http://mcavage.me/node-restify/#bundled-plugins
