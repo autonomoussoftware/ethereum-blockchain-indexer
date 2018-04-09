@@ -3,6 +3,16 @@
     "jsonRpcApiUrl": "ENODE_JSON_RPC_API_URL",
     "websocketApiUrl": "ENODE_WS_API_URL"
   },
+  "throttle": {
+    "burst": "THROTTLE_BURST", 
+    "rate": "THROTTLE_RATE",
+    "ip": "THROTTLE_IP_BOOL"
+  },
+  "jsonRpcApiUrl": "ENODE_JSON_RPC_API_URL",
+  "websocketApiUrl": "ENODE_WS_API_URL",
+  "pauseOnError": "INDEXER_DELAY_ON_ERROR",
+  "apiPort": "PORT",
+  "redisUrl": "REDIS_URL",
   "logger": {
     "Papertrail": {
       "host": "LOGGER_PAPERTRAIL_HOST",

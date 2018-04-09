@@ -1,6 +1,6 @@
 'use strict'
 
-const { port } = require('config')
+const config = require('config')
 const beforeExit = require('before-exit')
 const restify = require('restify')
 
@@ -9,6 +9,17 @@ const logger = require('../logger')
 const routes = require('./routes')
 
 const server = restify.createServer()
+
+if (config.throttle) {
+  logger.info('Local throttle activated', config.throttle)
+  server.use(
+    restify.plugins.throttle({
+      burst: config.throttle.burst,
+      rate: config.throttle.rate,
+      ip: config.throttle.ip
+    })
+  )
+}
 
 server.use(restify.plugins.queryParser())
 
@@ -26,8 +37,8 @@ function start () {
 
   routes.applyRoutes(server)
 
-  server.listen(port, function () {
-    logger.info(`API started on port ${port}`)
+  server.listen(config.port, function () {
+    logger.info(`API started on port ${config.port}`)
   })
 }
 
